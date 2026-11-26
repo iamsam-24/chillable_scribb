@@ -1,12 +1,23 @@
 package com.zenz.chillable.dto.request;
 
 
+import com.zenz.chillable.entity.Room;
+import com.zenz.chillable.entity.User;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
+@AllArgsConstructor
 public class MessageRequest {
+
+    private Room rooom;
+
+    private User user;
+
+   private String content;
+
+   private String message_type;
 }
