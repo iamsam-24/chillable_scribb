@@ -8,6 +8,8 @@ import lombok.Getter;
 
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,7 +17,7 @@ public class MessageRequest {
 
     private Room rooom;
 
-    private User user;
+    private UUID userId;
 
    private String content;
 

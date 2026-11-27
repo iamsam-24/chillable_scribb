@@ -1,9 +1,6 @@
 package com.zenz.chillable.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,8 +20,14 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id",nullable = false)
     private User user;
 
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "room_id",nullable = false)
     private Room room;
 
     private String content;
@@ -33,6 +36,5 @@ public class Message {
 
     private LocalDateTime created_at;
 
-    public void getContent(String content) {
-    }
+
 }

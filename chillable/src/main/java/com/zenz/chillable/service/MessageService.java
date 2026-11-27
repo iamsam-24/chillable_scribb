@@ -4,6 +4,8 @@ import com.zenz.chillable.dto.request.MessageRequest;
 import com.zenz.chillable.dto.response.MessageResponse;
 import com.zenz.chillable.entity.Message;
 import com.zenz.chillable.repository.MessageRepository;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -18,6 +20,7 @@ public class MessageService {
         this.messageRepository = messageRepository;
     }
 
+    @Transactional
     public MessageResponse create(MessageRequest request){
 
         Message message=new Message();
@@ -33,6 +36,7 @@ public class MessageService {
 
     }
 
+    @Transactional
     public Message get(UUID id){
         return messageRepository.findById(id).orElseThrow(()-> new RuntimeException("Message not found"));
     }
