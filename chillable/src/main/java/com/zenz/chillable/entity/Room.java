@@ -12,6 +12,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "rooms")
 public class Room {
 
     @Id

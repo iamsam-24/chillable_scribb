@@ -28,7 +28,7 @@ public class MessageService {
         message.setContent(request.getContent());
         message.setCreated_at(LocalDateTime.now());
         message.setRoom(request.getRooom());
-        message.setUser(request.getUser());
+        message.setUser(request.getRooom().getUser());
 
         messageRepository.save(message);
 

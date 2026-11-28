@@ -8,6 +8,7 @@ import com.zenz.chillable.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Service
@@ -22,6 +23,7 @@ public class UserService {
         User user= new User();
 
         user.setUsername(request.getUsername());
+        user.setCreated_at(LocalDateTime.now());
 
         userRepository.save(user);
 
